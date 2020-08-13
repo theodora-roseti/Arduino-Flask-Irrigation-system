@@ -1,0 +1,53 @@
+{% extends "Menu.html" %}
+{% block title %}Report{% endblock %}
+
+{% block content %}
+    <br>
+
+
+
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center text-center"><h1>Your plant's current status is right here!</h1>
+  <div class="important">
+
+<br><br>
+          <div class="text-center"><h2>Current Humidity:</h2></div>
+<br>
+
+      <table class="table table-warning text-white">
+  <thead>
+    <tr>
+      <th scope="col">SOIL</th>
+      <th scope="col">AIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{t_air}}</th>
+      <td>{{t_soil}}</td>
+    </tr>
+  </tbody>
+</table>
+
+      <br>
+
+    <div class="text-center"><h2>Current Temperature:</h2></div>
+
+      <br>
+
+      <table class="table table-warning text-white">
+  <thead>
+    <tr>
+      <th scope="col">SOIL</th>
+      <th scope="col">AIR</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{h_air}}</th>
+      <td>{{hum_soil}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  </div>
+{% endblock %}

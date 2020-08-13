@@ -1,0 +1,42 @@
+{% extends "Menu.html" %}
+
+{% block title %}On/Off Feature{% endblock %}
+
+{% block content %}
+    <br>
+  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center"><h1>Control Panel</h1>
+  <p class="important">
+      <h3>Turn your device on/off as you please!</h3>
+
+<br>
+      <br>
+      <form action="#" method="post">
+    <div class="btn-group " role="group" aria-label="">
+  <button type="submit" class="btn btn-outline-success btn-lg" id="buttonOn" name="status", value="buttonOn">Turn On</button>
+  <button type="submit" class="btn btn-outline-danger btn-lg" id="buttonOff" name="status", value="buttonOff">Turn Off</button>
+</div>
+      </form>
+<br>
+      <br>
+      <br>
+      <div class="col-xl-5 col-lg-8 col-md-10 col-sm-12 mx-auto text-center">
+     <img class="img-thumbnail" alt="..." src="/static/images/water.jpg" >
+      </div>
+      <br>
+      <br>
+
+
+      <footer class="page-footer">
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>BEWARE!</strong> You should check that your plant gets its water supply from elsewhere before turning off the device.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+      </footer>
+</div>
+
+  </div>
+
+
+{% endblock %}

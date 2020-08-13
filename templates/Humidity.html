@@ -1,0 +1,45 @@
+{% extends "Menu.html" %}
+
+{% block head %}
+    <script>
+    function evalSlider() {
+        var sliderValue = document.getElementById('formControlRange').value;
+        document.getElementById('sliderVal').innerHTML = sliderValue;
+
+    }
+    function evalSlider2() {
+        var sliderValue2 = document.getElementById('formControlRange2').value;
+        document.getElementById('sliderVal2').innerHTML = sliderValue2;
+
+    }
+    </script>
+{% endblock %}
+
+{% block title %}Humidity{% endblock %}
+
+{% block content %}
+    <br>
+    <br>
+  <h1>Humidity</h1>
+  <p class="important">
+    Welcome! You can start configuring the device's humidity right now.
+<br>
+    <br>
+      <form action="#" method="post">
+  <div class="form-group text-center">
+      <label for="formControlRange">Soil (0-100) </label>
+      <input type="range" class="form-control-range btn-warning" id="formControlRange" name="formControlRange" min="0" max="100" onchange="evalSlider()"/><output id="sliderVal"></output>
+    <br>
+    <br>
+    <br>
+    <br>
+      <label for="formControlRange2">Air (0-100) </label>
+      <input type="range" class="form-control-range btn-warning" id="formControlRange2" name="formControlRange2" min="0" max="100" onchange="evalSlider2()"/><output id="sliderVal2"></output>
+  </div>
+      <div class="col-auto">
+          <input type="submit" class="btn btn-warning mb-2 text-white"/>
+    </div>
+</form>
+
+
+{% endblock %}
