@@ -10,6 +10,7 @@ from time import sleep
 from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request, redirect, url_for
 from sqlalchemy import Column, Integer, Text
+
 __all__ = [serial, SQLAlchemy, Flask, render_template, request, redirect, url_for]
 app = Flask(__name__)
 
@@ -129,29 +130,23 @@ def read_arduino():
 
 
 def humidity_write(value_soil, value_air):
-    total_air = 'Air Humidity: {}'.format(value_air)
-    total_soil = 'Soil Humidity: {}'.format(value_soil)
 
-    with open("C:\\Users\\theo\\Desktop\\arduino\\config.txt", 'r+') as f:
-        contents_air = f.read().replace('Air Humidity: ', total_air)
-        f.seek(0)
-        f.truncate()
-        f.write(contents_air)
-    with open("C:\\Users\\theo\\Desktop\\arduino\\config.txt", 'r+') as f:
-        contents_soil = f.read().replace('Soil Humidity: ', total_soil)
-        f.seek(0)
-        f.truncate()
-        f.write(contents_soil)
+#AIR
+    with open("C:\\Users\\theo\\Desktop\\arduino\\config_hum_air.txt", 'w') as f:
+        f.writelines(str(value_air))
+        f.close()
+
+#SOIL
+    with open("C:\\Users\\theo\\Desktop\\arduino\\config_hum_soil.txt", 'w') as r:
+        r.writelines(str(value_soil))
+        r.close()
 
 
 def temperature_write(value_air):
-    total_air = 'Air Temperature: {}'.format(value_air)
 
-    with open("C:\\Users\\theo\\Desktop\\arduino\\config.txt", 'r+') as f:
-        contents_air = f.read().replace('Air Temperature: ', total_air)
-        f.seek(0)
-        f.truncate()
-        f.write(contents_air)
+    with open("C:\\Users\\theo\\Desktop\\arduino\\config_temp.txt", 'w') as r:
+        r.write(str(value_air))
+        r.close()
 
 
 def report_read():
@@ -170,4 +165,8 @@ def report_read():
 if __name__ == '__main__':
     db.create_all()
     app.run(debug=True)
+
+
+
+
 
